@@ -144,7 +144,7 @@
 	};
 
 
-	var Factory = function (data, options) {
+	var Rechart = function (data, options) {
 		if (!data.element || !data.dataset || !data.xAxis) return;
 		var _this = this;
 		this.isTouch = 'ontouchstart' in document.documentElement;
@@ -248,7 +248,7 @@
 	};
 
 
-	Factory.prototype.draw = function (force) {
+	Rechart.prototype.draw = function (force) {
 		if (!this.prepare(force)) return;
 
 		this.elements.gridGroup = _createElement('g', {
@@ -274,7 +274,7 @@
 	};
 
 
-	Factory.prototype.prepare = function (force) {
+	Rechart.prototype.prepare = function (force) {
 		var R = {
 			elementWidth: 0,
 			elementHeight: 0,
@@ -359,15 +359,15 @@
 		return true;
 	};
 
-	Factory.prototype.drawLine = function () {
+	Rechart.prototype.drawLine = function () {
 		this.drawPath(false);
 	};
 
-	Factory.prototype.drawArea = function () {
+	Rechart.prototype.drawArea = function () {
 		this.drawPath(true);
 	};
 
-	Factory.prototype.drawBar = function () {
+	Rechart.prototype.drawBar = function () {
 		this.elements.bars = [];
 		var w = _toInt((this.vars.xAxisPadding / this.dataset.length) * 0.8);
 		if (w < 1) w = 1;
@@ -390,7 +390,7 @@
 		}
 	};
 
-	Factory.prototype.drawPath = function (withArea) {
+	Rechart.prototype.drawPath = function (withArea) {
 		for (var d = 0; d < this.dataset.length; d++) {
 			var data = this.dataset[d];
 			var points = [];
@@ -420,7 +420,7 @@
 		}
 	};
 
-	Factory.prototype.drawCircle = function () {
+	Rechart.prototype.drawCircle = function () {
 		this.elements.circles = [];
 		for (var d = 0; d < this.dataset.length; d++) {
 			this.elements.circles[d] = [];
@@ -438,7 +438,7 @@
 		}
 	};
 
-	Factory.prototype.drawXAxisGrid = function () {
+	Rechart.prototype.drawXAxisGrid = function () {
 		var _this = this;
 		var drawLine = function (x) {
 			_createElement('line.xaxis-grid', {
@@ -456,7 +456,7 @@
 		}
 	};
 
-	Factory.prototype.drawYAxisGrid = function () {
+	Rechart.prototype.drawYAxisGrid = function () {
 		for (var i = 0; i < this.vars.yAxisVisibleCount; i++) {
 			var y = _toInt(this.opt.contentOffsetTop + i * this.vars.yAxisPadding);
 			_createElement('line.yaxis-grid', {
@@ -468,7 +468,7 @@
 		}
 	};
 
-	Factory.prototype.drawYAxisLine = function () {
+	Rechart.prototype.drawYAxisLine = function () {
 		_createElement('line.xaxis-line', {
 			x1: this.opt.contentOffsetLeft,
 			y1: 0,
@@ -477,7 +477,7 @@
 		}, this.elements.gridGroup);
 	};
 
-	Factory.prototype.drawXAxisLine = function () {
+	Rechart.prototype.drawXAxisLine = function () {
 		var y = _toInt(this.opt.contentOffsetTop + this.vars.yAxisVisibleCount * this.vars.yAxisPadding) - 1;
 		_createElement('line.yaxis-line', {
 			x1: 0,
@@ -487,7 +487,7 @@
 		}, this.elements.gridGroup);
 	};
 
-	Factory.prototype.drawXAxisGridTick = function (leftAlign) {
+	Rechart.prototype.drawXAxisGridTick = function (leftAlign) {
 		var s = leftAlign ? 0 : 1;
 		var e = leftAlign ? 1 : 0;
 		for (var i = s; i < this.vars.xAxisVisibleCount - e; i++) {
@@ -526,7 +526,7 @@
 		}
 	};
 
-	Factory.prototype.drawYAxisGridTick = function () {
+	Rechart.prototype.drawYAxisGridTick = function () {
 		for (var i = 0; i < this.vars.yAxisVisibleCount; i++) {
 			var y = _toInt(this.opt.contentOffsetTop + i * this.vars.yAxisPadding),
 				lineX1 = this.opt.contentOffsetLeft,
@@ -553,7 +553,7 @@
 		}
 	};
 
-	Factory.prototype.move = function (ev) {
+	Rechart.prototype.move = function (ev) {
 		if (!this.elementBoundingRect) this.elementBoundingRect = this.element.getBoundingClientRect();
 		var dataIndex = this.dataIndexFromEvent(ev);
 		if (dataIndex >= this.xAxisCount || dataIndex < 0) return;
@@ -570,7 +570,7 @@
 		}
 	};
 
-	Factory.prototype.leave = function () {
+	Rechart.prototype.leave = function () {
 		if (this.opt.showXAxisGuideline) this.removeXAxisGuideline();
 		if (this.elements.tooltip) {
 			this.elements.tooltip = _removeNode(this.elements.tooltip);
@@ -578,7 +578,7 @@
 		this.vars.lastDataIndex = undefined;
 	};
 
-	Factory.prototype.click = function (ev) {
+	Rechart.prototype.click = function (ev) {
 		if (!this.opt.click) return;
 		var dataIndex = this.dataIndexFromEvent(ev);
 		if (dataIndex >= this.xAxisCount || dataIndex < 0) return;
@@ -593,7 +593,7 @@
 		this.opt.click(this.xAxis[dataIndex], arr, dataIndex);
 	};
 
-	Factory.prototype.drawXAxisGuideline = function (dataIndex) {
+	Rechart.prototype.drawXAxisGuideline = function (dataIndex) {
 		if (!this.opt.showXAxisGuideline) return;
 		var x1x2 = _toInt(this.opt.contentOffsetLeft + this.vars.xAxisPadding * (dataIndex - this.vars.xAxisVisibleCountStart));
 		if (!this.elements.guidelineGroup) {
@@ -629,7 +629,7 @@
 		}
 	};
 
-	Factory.prototype.removeXAxisGuideline = function () {
+	Rechart.prototype.removeXAxisGuideline = function () {
 		if (!this.opt.showXAxisGuideline || this.vars.lastDataIndex === undefined) return;
 		if (this.elements.guidelineGroup) {
 			this.elements.guidelineGroup = _removeNode(this.elements.guidelineGroup);
@@ -642,7 +642,7 @@
 		}
 	};
 
-	Factory.prototype.dataIndexFromEvent = function (ev) {
+	Rechart.prototype.dataIndexFromEvent = function (ev) {
 		var d = (this.opt.showBar) ? 0 : (this.vars.xAxisPadding / 2);
 		var x = ev.pageX - this.elementBoundingRect.left, //this.isTouch ? ev.layerX : ev.offsetX,
 			start = _toInt(this.opt.contentOffsetLeft - d),
@@ -652,7 +652,7 @@
 		return this.vars.xAxisVisibleCountStart + _toInt((x - start) / this.vars.xAxisPadding);
 	};
 
-	Factory.prototype.drawTooltip = function (dataIndex) {
+	Rechart.prototype.drawTooltip = function (dataIndex) {
 		var html = '<div class="yaxis-label">' + this.xAxis[dataIndex].tooltip + '</div>';
 		for (var j = 0; j < this.dataset.length; j++) {
 			html += '<div class="data-wrapper">';
@@ -670,7 +670,7 @@
 		this.vars.tooltipWidth = this.elements.tooltip.clientWidth;
 	};
 
-	Factory.prototype.positionTooltip = function (ev, dataIndex) {
+	Rechart.prototype.positionTooltip = function (ev, dataIndex) {
 		if (!this.elements.tooltip) return;
 		var x = (dataIndex - this.vars.xAxisVisibleCountStart) * this.vars.xAxisPadding + this.opt.contentOffsetLeft;
 		if (x + this.vars.tooltipWidth + this.opt.tooltipOffset + (this.opt.showBar ? this.vars.xAxisPadding : 0) > this.vars.chartWidth) {
@@ -684,7 +684,7 @@
 		this.elements.tooltip.setAttribute('style', 'top: 0px; left:' + x + 'px');
 	};
 
-	Factory.prototype.orderOfMagnitude = function () {
+	Rechart.prototype.orderOfMagnitude = function () {
 		// var unroundedTickSize = this.largest / (lines - 1);
 		// var x = Math.ceil((Math.log(unroundedTickSize) / Math.LN10) - 2);
 		// var pow10x = Math.pow(10, x);
@@ -694,7 +694,7 @@
 		return (rounded === 0) ? 1 : rounded;
 	};
 
-	Factory.prototype.yAxisText = function (val) {
+	Rechart.prototype.yAxisText = function (val) {
 		var numeral = '';
 		if (this.opt.xAxisNumerals) {
 			if (val > 1000000) {
@@ -708,7 +708,7 @@
 		return ((val < 1) ? val.toFixed(1) : _toInt(val)) + numeral;
 	};
 
-	Factory.prototype.createLabel = function (obj, el) {
+	Rechart.prototype.createLabel = function (obj, el) {
 		var _this = this;
 		var l = JSON.parse(JSON.stringify(obj));
 		if (l.mw === undefined && l.medium) {
@@ -740,7 +740,7 @@
 		return l;
 	};
 	this.rechart = function (data, options) {
-		return new Factory(data, options);
+		return new Rechart(data, options);
 	};
 	this.rechart.globals = defaults;
 
