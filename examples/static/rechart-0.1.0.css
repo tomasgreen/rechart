@@ -1,0 +1,120 @@
+.rechart-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  position: relative;
+}
+.rechart-container svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Helvetica Neue', 'Open Sans', sans-serif;
+}
+.rechart-container svg .circle {
+  stroke-width: 0;
+  stroke: #ffffff;
+}
+.rechart-container svg .area {
+  stroke: transparent;
+  fill-opacity: 0.2;
+}
+.rechart-container svg .line {
+  fill: transparent;
+}
+.rechart-container svg .bar {
+  fill-opacity: 1;
+  stroke-width: 1;
+}
+.rechart-container svg .xaxis-grid,
+.rechart-container svg .yaxis-grid {
+  stroke-dasharray: 2, 2;
+  stroke: #eee;
+  stroke-width: 1;
+}
+.rechart-container svg .xaxis-tick,
+.rechart-container svg .yaxis-tick,
+.rechart-container svg .xaxis-line,
+.rechart-container svg .yaxis-line {
+  stroke-width: 1;
+  stroke: #aaaaaa;
+}
+.rechart-container svg .xaxis-tick-text,
+.rechart-container svg .yaxis-tick-text {
+  fill: #666;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1;
+}
+.rechart-container svg .xaxis-tick-text {
+  text-anchor: middle;
+}
+.rechart-container svg .xaxis-tick-text-left {
+  text-anchor: left;
+}
+.rechart-container svg .yaxis-tick-text {
+  text-anchor: center;
+}
+.rechart-container svg .xaxis-guideline {
+  stroke-dasharray: 2, 2;
+  stroke: #bbb;
+  stroke-width: 1;
+}
+.rechart-container svg * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.rechart-container .rechart-tooltip {
+  z-index: 100;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  padding: 4px 6px 2px 6px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px dotted rgba(255, 255, 255, 0.2);
+}
+.rechart-container .rechart-tooltip .yaxis-label {
+  font-size: 16px;
+  margin-bottom: 4px;
+  display: block;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2px inherit;
+}
+.rechart-container .rechart-tooltip .data-wrapper {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 3px;
+}
+.rechart-container .rechart-tooltip .data-wrapper .data-value {
+  float: right;
+  line-height: 1.2;
+}
+.rechart-container .rechart-tooltip .data-wrapper .data-label {
+  float: left;
+  padding-right: 10px;
+  line-height: 1.2;
+}
+.rechart-container .rechart-tooltip .data-wrapper .data-color {
+  margin-top: 2px;
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border: 1px dotted rgba(255, 255, 255, 0.2);
+}

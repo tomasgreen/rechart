@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Rechart</title>
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/tomorrow-night-bright.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="static/rechart-0.1.0.min.css">
+	<link rel="stylesheet" type="text/css" href="static/colors.css">
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+	<!--a href="https://github.com/tomasgreen"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a-->
+	<div class="row-container animated fadeInDown first-chart bg-blue" >
+		<div class="row">
+			<div class="col-12">
+				<h1 style="border-bottom: 3px solid rgba(255,255,255,0.5);">
+					rechart
+				</h1>
+				<ul>
+					<li>Dependency free</li>
+					<li>Responsive - Reduces data making the chart less cluttered at small sizes</li>
+					<li>Style with CSS</li>
+					<li>Tooltips adapted to touch-devices</li>
+					<li>21 KB miminized including css (if that's considered small)</li>
+					<li>Customziable (well... it has settings)</li>
+				</ul>
+				<div style="text-align: center">
+					<a href="#" class="download color-white bg-aqua">Download</a>
+					<a href="#" class="download color-white bg-aqua">Github</a>
+					<a href="#" class="download color-white bg-aqua">Documentation</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="rechart-container">
+					<svg id="chart1"></svg>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="color: #fff; margin-bottom: 30px; overflow: hidden;">
+			<div class="col-6">
+				<h4>JS</h4>
+				<pre style="background-color: rgba(0,0,0,0.6);"><code class="js">rechart({
+    element: document.getElementById('chart1'),
+    dataset: [{
+        data: randomData(randCount),
+        color: 'white',
+        label: 'Windows Phone'
+    }],
+    xAxis: xAxis
+}, {
+    ratio: 0.3,
+    minHeight: 200
+});</code></pre>
+			</div>
+			<div class="col-6">
+				<h4>CSS</h4>
+				<pre style="background-color: rgba(0,0,0,0.6);"><code class="css">.first-chart svg .rechart-tooltip-xaxis-line {
+    stroke-dasharray: none;
+    stroke: #fff;
+}
+.first-chart svg .xaxis-tick,
+.first-chart svg .yaxis-tick,
+.first-chart svg .xaxis-line,
+.first-chart svg .yaxis-line {
+    stroke: #fff;
+}
+.first-chart svg .xaxis-grid,
+.first-chart svg .yaxis-grid {
+    stroke: #fff;
+    opacity: 0.2;
+}
+.first-chart svg .xaxis-tick-text,
+.first-chart svg .yaxis-tick-text {
+    fill: #fff;
+}</code></pre>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+	<div class="row-container animated fadeInDown">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="heading">Default styling</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<div class="rechart-container third-chart ">
+					<svg id="chart4"></svg>
+				</div>
+				<br>
+				<pre style="background-color: rgba(0,0,0,0.8);"><code class="js">rechart({
+    element: document.getElementById('chart4'),
+    dataset: [{
+        data: randomData(randCount),
+        color: 'fuchsia',
+        label: 'Safari'
+    }, {
+        data: randomData(randCount),
+        color: 'navy',
+        label: 'Internet Explorer'
+    }],
+    xAxis: xAxis
+}, {
+    maxHeight: 200,
+    minHeight: 200
+});</code></pre>
+			</div>
+			<hr class="visible-sm">
+			<div class="col-6">
+				<div class="rechart-container fourth-chart">
+					<svg id="chart6"></svg>
+				</div>
+				<br>
+				<pre style="background-color: rgba(0,0,0,0.8);;"><code class="js">rechart({
+    element: document.getElementById('chart6'),
+    dataset: [{
+        data: randomData(randCount),
+        color: 'black',
+        label: 'Maybe'
+    }, {
+        data: randomData(randCount),
+        color: 'orange',
+        label: 'Something'
+    }, {
+        data: randomData(randCount),
+        color: 'maroon',
+        label: 'Else'
+    }],
+    xAxis: xAxis
+}, {
+    showArea: false,
+    showCircle: false,
+    bezier: true,
+    maxHeight: 200,
+    minHeight: 200
+});</code></pre>
+			</div>
+		</div>
+	</div>
+	<div class="row-container animated fadeInDown">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="heading">Default styling</h1>
+			</div>
+			<div class="col-12">
+				<div class="rechart-container">
+					<svg id="chart8"></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-container second-chart animated fadeInDown bg-olive">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="heading" style="color: #fff">This kind of looks like moutains.</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="rechart-container">
+					<svg id="chart1.1" style="background-color: rgba(0,0,0,0.2); border: 3px solid rgba(0,0,0,0.4)"></svg>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="color: #fff; margin-bottom: 30px; overflow: hidden;">
+			<div class="col-6">
+				<h4>JS</h4>
+				<pre style="background-color: rgba(0,0,0,0.6);"><code class="js">rechart({
+    element: document.getElementById('chart1.1'),
+    dataset: [{
+        data: randomData(randCount),
+        color: 'white',
+        label: 'Safari'
+    }, {
+        data: randomData(randCount),
+        color: 'black',
+        label: 'Internet Explorer'
+    }],
+    xAxis: xAxis
+}, {
+    showXAxisLabel: false,
+    showXAxisGrid: false,
+    showXAxisLine: false,
+    showYAxisLabel: false,
+    showYAxisGrid: false,
+    showYAxisLine: false,
+    showLine: false,
+    showCircle: false,
+    showTooltip: false,
+    showGuideline: false,
+    reduceData: false,
+    contentOffset: 20,
+    ratio: 0.3
+});</code></pre>
+			</div>
+			<div class="col-6">
+				<h4>CSS</h4>
+				<pre style="background-color: rgba(0,0,0,0.6);"><code class="css">.second-chart svg .path:first-child {
+    fill-opacity: 0.2;
+}
+.second-chart svg .path:last-child {
+    fill-opacity: 0.7;
+}</code></pre>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+	<div class="row-container animated fadeInDown">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="heading">Styling</h1>
+			</div>
+			<div class="col-12">
+				Try not to mess with the container. Recalculating the width (including padding) is pretty slow and makes the site sluggish when resizing.
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<h1 class="heading">Settings</h1>
+			</div>
+			<div class="col-12">
+				<p>The following settings can be used in the option parameter when calling new Reachart(). I'm pretty sure (no guarantees) you can change these at any point by calling "instance.settings.X = X", just don't forget to call instance.draw() afterwards.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<td style="width: 250px">Property</td>
+							<td>Description</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>minHeight<br><small>number</small> <small>(default: 0)</small></td>
+							<td>Minimun height of the chart container in pixles</td>
+						</tr>
+						<tr>
+							<td>maxHeight<br><small>number</small> <small>(default: Infinity)</small></td>
+							<td>Maximum height of the chart container in pixles</td>
+						</tr>
+						<tr>
+							<td>ratio<br><small>number</small> <small>(default: undefined)</small></td>
+							<td>The width/height ratio of the chart. This setting does not effect minHeight and maxHeight. If the ratio is undefined it will be set using the current height and width of the container at the point of creation.</td>
+						</tr>
+						<tr>
+							<td>contentOffset<br><small>number</small> <small>(default: 10)</small></td>
+							<td>The offset from the svg-element to where the data is drawn.</td>
+						</tr>
+						<tr>
+							<td>tooltipOffset<br><small>number</small> <small>(default: 10)</small></td>
+							<td>Offset from the mousepointer/tooltipline to where the tooltip will be drawn.</td>
+						</tr>
+						<tr>
+							<td>tickOffset<br><small>number</small> <small>(default: 10)</small></td>
+							<td>Offset from the mousepointer/tooltipline to where the tooltip will be drawn.</td>
+						</tr>
+						<tr>
+							<td>touchDelay<br><small>number</small> <small>(default: 300)</small></td>
+							<td>Number of milliseconds from touchstart to when the tooltip is shown.</td>
+						</tr>
+						<tr>
+							<td>lockScrollOnTouchPress<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enables/Disables the page scroll when the tooltip has been shown. Will only be used on touch devices.</td>
+						</tr>
+						<tr>
+							<td>textSpacing<br><small>number</small> <small>(default: 4)</small></td>
+							<td>Enables/Disables </td>
+						</tr>
+						<tr>
+							<td>bezier<br><small>bool</small> <small>(default: false)</small></td>
+							<td>Enables/Disables bezier curves. It's off by default since bezier curves distorts data and can even go ut of bounds from the chart element (which won't look pretty). It will be automatically disabled if there are less than 3 points.</td>
+						</tr>
+						<tr>
+							<td>bezierDenominator<br><small>number</small> <small>(default: 9)</small></td>
+							<td>Large number means small curve, small number means large curve. This is some kind of denominator that determines the size/tension of the curve. I stole the code from chartist so I don't really understand how it works... </td>
+						</tr>
+						<tr>
+							<td>circleRadius<br><small>number</small> <small>(default: 4)</small></td>
+							<td>The radius of the circles in pixels.</td>
+						</tr>
+						<tr>
+							<td>circleRadiusHover<br><small>number</small> <small>(default: 8)</small></td>
+							<td>The radius of the circles in pixels when hovering above a line related to a circle.</td>
+						</tr>
+						<tr>
+							<td>responsive<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the responsivness.</td>
+						</tr>
+						<tr>
+							<td>reduceData<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable data reduction. The data reduction itself is based upon the minimum distance of the x-axis grid.</td>
+						</tr>
+						<tr>
+							<td>reduceXAxisLabel<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable reduction of the xAxis-label. The xAxis labels are reduced based on the size of the label so that they never overlap.</td>
+						</tr>
+						<tr>
+							<td>keepRatio<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable ratio. If set to false the height of the chart will stay the same-</td>
+						</tr>
+						<tr>
+							<td>click<br><small>function(label,data,index)</small> <small>(default: undefined)</small></td>
+							<td>Event for when the user clicks on the chart. This returns the x-axis label, data and index.</td>
+						</tr>
+						<tr>
+							<td>xAxisGridFollowLabel<br><small>bool</small> <small>(default: false)</small></td>
+							<td>Enable/Disable whether or not the grid distance should follow the distance of the label.</td>
+						</tr>
+						<tr>
+							<td>xAxisGridMinDistance<br><small>number</small> <small>(default: 30)</small></td>
+							<td>Minimum distance of the x axis grid lines.</td>
+						<tr>
+							<td>xAxisMinDistance<br><small>number</small> <small>(default: 20)</small></td>
+							<td>The miminum distance in pixels from one x axis point to another.</td>
+						</tr>
+						<tr>
+							<td>yAxisMinDistance<br><small>number</small> <small>(default: 20)</small></td>
+							<td>The miminum distance in pixels from one y axis grid line to the next</td>
+						</tr>
+						<tr>
+							<td>showXAxisLabel<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the xAxis label.</td>
+						</tr>
+						<tr>
+							<td>showXAxisGrid<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the xAxis grid.</td>
+						</tr>
+						<tr>
+							<td>showXAxisLine<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the xAxis bottom line.</td>
+						</tr>
+						<tr>
+							<td>showYAxisLabel<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the yAxis label.</td>
+						</tr>
+						<tr>
+							<td>showYAxisGrid<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable the yAxis grid.</td>
+						</tr>
+						<tr>
+							<td>showYAxisLine<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the yAxis bottom line.</td>
+						</tr>
+						<tr>
+							<td>showArea<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the area/path.</td>
+						</tr>
+						<tr>
+							<td>showLine<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the line/polyline.</td>
+						</tr>
+						<tr>
+							<td>showCircle<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the circles.</td>
+						</tr>
+						<tr>
+							<td>showTooltip<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the tooltip. This will also disable any custom implementation of the tooltip events.</td>
+						</tr>
+						<tr>
+							<td>showXAxisGuideline<br><small>bool</small> <small>(default: true)</small></td>
+							<td>Enable/Disable drawing of the hover/touch guideline.</td>
+						</tr>
+						<tr>
+							<td>sizeSmall<br><small>number</small> <small>(default: 768)</small></td>
+							<td>The responsive width (in pixles) that changes the labels to size small.</td>
+						</tr>
+						<tr>
+							<td>sizeMedium<br><small>number</small> <small>(default: 992)</small></td>
+							<td>The responsive width (in pixles) that changes the labels to size medium.</td>
+						</tr>
+						<tr>
+							<td>sizeLarge<br><small>number</small> <small>(default: 1200)</small></td>
+							<td>The responsive width (in pixles) that changes the labels to size large.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-12">
+				<h1 class="heading">Methods</h1>
+				<p>There's only really one method worth mentioning (draw(), for anyone who's interested), but what the hell, I'll just put them all here.</p>
+				<p>
+				Changing the execution order of the drawSomething-methds will change the order of the elements. This might, for example, put the tooltip below everything else resulting in non-functioning tooltips.
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<td style="width: 350px">Property</td>
+							<td>Description</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><small>void</small> draw(<small>bool force</small>)</td>
+							<td>Draws the charts. Force will make sure that the chart is drawn reglardless of responsive settings.</td>
+						</tr>
+						<tr>
+							<td><small>bool</small> prepare(<small>bool force</small>)</td>
+							<td>This method is executed when draw() is called. If it returns true the chart will be drawn (or redrawn). Force will make sure that the chart is drawn reglardless of responsive settings.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawArea()</td>
+							<td>Draws the area under the chart</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawLine()</td>
+							<td>Draws the polyline, which is the acual line.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawCircle()</td>
+							<td>Draws the circles indicating each data point of the chart.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawXAxisGrid()</td>
+							<td>Draws x axis grid</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawYAxisGrid()</td>
+							<td>Draws y axis grid</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawXAxisLine()</td>
+							<td>Draws x axis line, which is the bottom line.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawYAxisLine()</td>
+							<td>Draws y axis line, which is the line to the right.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawXAxisGridTick()</td>
+							<td>Draws x axis grid tick, that's the small line next to the text on the x axis.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawYAxisGridTick()</td>
+							<td>Draws y axis grid tick, that's the small line beneath to the text on the y axis.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawXAxisGuideline()</td>
+							<td>Draws the x axis line you see when the mouse hovers a tooltip rect.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> removeXAxisGuideline()</td>
+							<td>Removes the guideline and resets the highlighted circles.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> dataIndexFromEvent(<small>MouseEvent originalEvent</small>)</td>
+							<td>Returns the index corresponding to the position of the mouse.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> drawTooltip(<small>Number index</small>)</td>
+							<td>Draws the tooltip with the data derived from the appointed index.</td>
+						</tr>
+						<tr>
+							<td><small>void</small> positionTooltip(<small>Event originalEvent, Number index</small>)</td>
+							<td>This method positions the tooltip according to settings and/or mouse-position. This method is called upon tooltiplineMouseenter()</td>
+						</tr>
+						<tr>
+							<td><small>void</small> move(<small>MouseEvent originalEvent</small>)</td>
+							<td>This method is called when the mouse moves inside the area. No touch event yet...</td>
+						</tr>
+						<tr>
+							<td><small>void</small> leave(<small>MouseEvent originalEvent</small>)</td>
+							<td>This method is called when the mouse leaves the area (or a touch-event ends).</td>
+						</tr>
+						<tr>
+							<td><small>void</small> click(<small>MouseEvent originalEvent</small>)</td>
+							<td>A funtion executed when the tooltip rect is clicked.</td>
+						</tr>
+						<tr>
+							<td><small>Object</small> createLabel(<small>Object obj, Element element</small>)</td>
+							<td>Returns an object that's used when drawing the approrpiate x axis label. The element in question is a temporary element with the right styling that is used to calculate the width of the label.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+	<script src="static/rechart-0.1.0.min.js"></script>
+	<script src="static/init.js"></script>
+</body>
+</html>

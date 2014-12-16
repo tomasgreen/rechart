@@ -1,0 +1,109 @@
+@tickTextFontSize: 12px;
+@defaultDash: 2, 2;
+
+.no-touch-selection() {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.rechart-container {
+	.no-touch-selection();
+	box-sizing: border-box;
+	position: relative;
+	svg {
+		.no-touch-selection();
+		font-family: 'Helvetica Neue', 'Open Sans', sans-serif;
+		.circle {
+			stroke-width: 0;
+			stroke: #fff
+		}
+		.area {
+			stroke: transparent;
+			fill-opacity: 0.2
+		}
+		.line {
+			fill: transparent
+		}
+		.bar {
+			fill-opacity: 1;
+			stroke-width: 1;
+		}
+		.xaxis-grid, .yaxis-grid {
+			stroke-dasharray: @defaultDash;
+			stroke: #eee;
+			stroke-width: 1
+		}
+		.xaxis-tick, .yaxis-tick, .xaxis-line, .yaxis-line {
+			stroke-width: 1;
+			stroke: #aaa
+		}
+		.xaxis-tick-text, .yaxis-tick-text {
+			fill: #666;
+			font-size: @tickTextFontSize;
+			font-weight: 300;
+			line-height: 1;
+		}
+		.xaxis-tick-text {
+			text-anchor: middle;
+		}
+		.xaxis-tick-text-left {
+			text-anchor: left;
+		}
+		.yaxis-tick-text {
+			text-anchor: center;
+		}
+		.xaxis-guideline {
+			stroke-dasharray: @defaultDash;
+			stroke: #bbb;
+			stroke-width: 1;
+		}
+		* {
+			.no-touch-selection()
+		}
+	}
+	.rechart-tooltip {
+		z-index: 100;
+		overflow: hidden;
+		position: absolute;
+		text-align: left;
+		padding: 4px 6px 2px 6px;
+		color: #fff;
+		background-color: rgba(0, 0, 0, 0.5);
+		border: 1px dotted rgba(255, 255, 255, 0.2);
+		.yaxis-label {
+			font-size: 16px;
+			margin-bottom: 4px;
+			display: block;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.2);
+			padding: 2px inherit
+		}
+		.data-wrapper {
+			display: block;
+			overflow: hidden;
+			width: 100%;
+			margin-bottom: 3px;
+			.data-value {
+				float: right;
+				line-height: 1.2
+			}
+			.data-label {
+				float: left;
+				padding-right: 10px;
+				line-height: 1.2
+			}
+			.data-color {
+				margin-top: 2px;
+				float: left;
+				width: 15px;
+				height: 15px;
+				margin-right: 10px;
+				border: 1px dotted rgba(255, 255, 255, 0.2)
+			}
+		}
+	}
+}
